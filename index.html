@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- Progress Bar -->
+    <div id="progressBar">
+      <div id="progressFill"></div>
+      <div id="progressSeed">🌱</div>
+    </div>
+
+    <!-- Step 1: Gender -->
+    <div class="page" id="page1">
+      <h2>Q1: Gender</h2>
+      <div class="options">
+        <div class="option" data-group="gender" data-value="Male">Male</div>
+        <div class="option" data-group="gender" data-value="Female">Female</div>
+      </div>
+      <div class="nav">
+        <button class="next" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Age -->
+    <div class="page" id="page2">
+      <h2>Q2: Age (years)</h2>
+      <input type="number" id="age" placeholder="Enter your age">
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Health Condition -->
+    <div class="page" id="page3">
+      <h2>Q3: Do you have any chronic diseases?</h2>
+      <div class="options">
+        <div class="option" data-group="disease" data-value="No">No</div>
+        <div class="option" data-group="disease" data-value="Yes">Yes</div>
+      </div>
+      <div id="disease-detail" class="hidden">
+        <label>Please specify:</label>
+        <input type="text" id="disease-text">
+      </div>
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Work Experience -->
+    <div class="page" id="page4">
+      <h2>Q4: Years of work experience</h2>
+      <input type="number" id="exp" placeholder="Enter number of years">
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Working Hours -->
+    <div class="page" id="page5">
+      <h2>Q5: Working hours per day</h2>
+      <input type="number" id="workhours" placeholder="Enter number of hours">
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 6: Type of Work -->
+    <div class="page" id="page6">
+      <h2>Q6: Main type of agricultural work</h2>
+      <div class="options">
+        <div class="option" data-group="worktype" data-value="Rice Farming">Rice Farming</div>
+        <div class="option" data-group="worktype" data-value="Field Work">Field Work</div>
+        <div class="option" data-group="worktype" data-value="Orchard Work">Orchard Work</div>
+      </div>
+      <div id="work-images"></div>
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="submit" disabled>Submit</button>
+      </div>
+    </div>
+
+    <!-- Final Page -->
+    <div class="page" id="pageFinal">
+      <video src="backpain.mp4" autoplay loop muted playsinline style="width:100%; height:auto; pointer-events:none;"></video>
+
+      <div id="finalMessage" style="text-align:center; margin:20px 10px; font-size:1em; color:#2e7d32; line-height:1.6;">
+        Your general information has been successfully recorded 😊<br>
+        You can now start the ergonomic risk assessment for farmers by clicking the button below.
+      </div>
+
+      <div style="text-align:center; margin-bottom:50px;">
+        <button id="feraBtn" style="
+          font-size: 1.5em; 
+          padding: 18px 36px; 
+          border: none; 
+          border-radius: 12px; 
+          background-color: #66bb6a; 
+          color: white; 
+          cursor: pointer;
+          box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+          transition: transform 0.2s;
+        ">🌿 Start FERA Assessment</button>
+      </div>
+    </div>
+    
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
