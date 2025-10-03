@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const feraBtn = document.getElementById("feraBtn");
   if (feraBtn) {
     feraBtn.addEventListener("click", () => {
-      window.open("https://aomporn1123hot-ux.github.io/FERA-for-Farmer/", "_blank");
+      window.open("https://aomporn1123hot-ux.github.io/Risk-Assessment/", "_blank");
     });
     feraBtn.addEventListener("mouseover", () => feraBtn.style.transform = "scale(1.05)");
     feraBtn.addEventListener("mouseout", () => feraBtn.style.transform = "scale(1)");
