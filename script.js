@@ -1,3 +1,4 @@
+// script.js
 import { db, ref, set, push } from "./firebase.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       case 2:
         const diseaseOpt = document.querySelector(".option[data-group='disease'].selected");
         if (diseaseOpt) {
-          valid = diseaseOpt.dataset.value === "มี" ? !!document.getElementById("disease-text").value : true;
+          valid = diseaseOpt.dataset.value === "Yes" ? !!document.getElementById("disease-text").value : true;
         }
         break;
       case 3:
@@ -54,8 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       case 5:
         const workOpt = document.querySelector(".option[data-group='worktype'].selected");
         if (workOpt) {
-          const container = document.getElementById("work-images");
-          if (workOpt.dataset.value === "ทำนา") valid = true;
+          if (workOpt.dataset.value === "Rice Farming") valid = true;
           else valid = !!document.querySelector(".workimg.selected");
         }
         break;
@@ -73,22 +73,22 @@ document.addEventListener("DOMContentLoaded", () => {
       opt.classList.add("selected");
 
       if (group === "disease") {
-        document.getElementById("disease-detail").classList.toggle("hidden", opt.dataset.value !== "มี");
+        document.getElementById("disease-detail").classList.toggle("hidden", opt.dataset.value !== "Yes");
       }
 
       if (group === "worktype") {
         const container = document.getElementById("work-images");
         container.innerHTML = "";
-        if (opt.dataset.value === "ทำนา") {
+        if (opt.dataset.value === "Rice Farming") {
           container.innerHTML = `<img src="1.png" class="workimg" style="pointer-events:none;">`;
-        } else if (opt.dataset.value === "ทำไร่") {
+        } else if (opt.dataset.value === "Field Farming") {
           container.innerHTML = `<img src="S.png" class="workimg"><img src="R.png" class="workimg"><img src="C.png" class="workimg">`;
-        } else if (opt.dataset.value === "ทำสวน") {
+        } else if (opt.dataset.value === "Gardening") {
           container.innerHTML = `<img src="V.png" class="workimg"><img src="T.png" class="workimg">`;
         }
 
         document.querySelectorAll(".workimg").forEach(img => {
-          if (opt.dataset.value !== "ทำนา") {
+          if (opt.dataset.value !== "Rice Farming") {
             img.addEventListener("click", () => {
               document.querySelectorAll(".workimg").forEach(i => i.classList.remove("selected"));
               img.classList.add("selected");
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const age = document.getElementById("age").value || "";
     const diseaseOpt = document.querySelector(".option[data-group='disease'].selected");
     const disease = diseaseOpt ? diseaseOpt.dataset.value : "";
-    const diseaseText = disease === "มี" ? document.getElementById("disease-text").value : "";
+    const diseaseText = disease === "Yes" ? document.getElementById("disease-text").value : "";
     const exp = document.getElementById("exp").value || "";
     const workhours = document.getElementById("workhours").value || "";
     const worktype = document.querySelector(".option[data-group='worktype'].selected")?.dataset.value || "";
@@ -134,8 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
         showPage(current + 1);
       })
       .catch(err => {
-        console.error("เกิดข้อผิดพลาด ❌", err);
-        alert("บันทึกข้อมูลไม่สำเร็จ");
+        console.error("Error ❌", err);
+        alert("Failed to save data");
       });
   });
 
