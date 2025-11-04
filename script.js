@@ -128,15 +128,16 @@ document.addEventListener("DOMContentLoaded", () => {
       timestamp: new Date().toISOString()
     };
 
-    const newRef = push(ref(db, "responses"));
-    set(newRef, data)
-      .then(() => {
-        showPage(current + 1);
-      })
-      .catch(err => {
-        console.error("Error ❌", err);
-        alert("Failed to save data");
-      });
+    import { saveToBoth } from "./firebase.js";
+
+saveToBoth(data)
+  .then(() => {
+    showPage(current + 1);
+  })
+  .catch(err => {
+    console.error("Error ❌", err);
+    alert("Failed to save data");
+  });
   });
 
   const feraBtn = document.getElementById("feraBtn");
