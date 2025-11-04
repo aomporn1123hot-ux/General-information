@@ -1,5 +1,5 @@
 // script.js
-import { db, ref, set, push } from "./firebase.js";
+import { db, ref, set, push, saveToBoth } from "./firebase.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const pages = document.querySelectorAll(".page");
