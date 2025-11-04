@@ -128,8 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
       timestamp: new Date().toISOString()
     };
 
-    import { saveToBoth } from "./firebase.js";
-
 saveToBoth(data)
   .then(() => {
     showPage(current + 1);
